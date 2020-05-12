@@ -91,7 +91,7 @@ router.get("/userprofile/:id", async (req, res) => {
     const { id } = req.params;
     if ( id ) {
         let user = await User.singleOrDefault({id: id})
-        res.status(200).send({email: user.email ,firstName: user.first_name, lastName: user.last_name })
+        res.status(200).send({email: user.email, firstName: user.first_name, lastName: user.last_name })
     } else {
         res.status(401).send({response: 'Error in loading user profile'});
     }
