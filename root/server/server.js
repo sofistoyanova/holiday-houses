@@ -2,8 +2,12 @@ const express = require('express')
 const app = express()
 const port = 9091
 
+
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
+
 // Require routes
-const apiRoutes = require('./routes/api')
+const apiRoutes = require('./routes/api.js')
 
 // Knex 
 const Knex = require('knex')
