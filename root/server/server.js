@@ -20,7 +20,7 @@ Model.knex(knex)
 app.use('/api', apiRoutes)
 
 // Start the server
-const server = app.listen(port, (error) => {
+app.listen(port, (error) => {
     if(error) {
         return console.log('Error running express')
     }
