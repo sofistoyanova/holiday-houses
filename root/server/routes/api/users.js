@@ -16,17 +16,17 @@ router.post("/signup", (req, res) => {
     // validate if values are entered
     if ( email && password && repeatPassword && password === repeatPassword ) {
         if ( password.length < 8 ) {
-            return res.status(400).send({response: 'Password has to be atleast 8 chars.!'})
+            return res.status(411).send({response: 'Password has to be atleast 8 chars.!'})
         } else {
-            bcrypt.hash(password, saltRounds, async (err, hashPassword) => {
+            bcrypt.hash( password, saltRounds, async ( err, hashPassword ) => {
                 if ( err ) {
-                    res.status(500).send({response: 'Cannot hash password'});
+                    return res.status(500).send({response: 'Cannot hash password'});
                 }
                 
                 try {
                     const existingUser = User.query().select().where({email: email}).limit(1);
 
-                    if(existingUser[0]) {
+                    if( existingUser[0] ) {
                         res.status(400).send({response: 'User already exists'});
                     } else {
                         const newUser = await User.query().insert({
@@ -42,13 +42,13 @@ router.post("/signup", (req, res) => {
                         })
                     }
 
-                } catch (error) {
+                } catch ( error ) {
                     console.log(error)
                     return res.status(500).send({ response: "Something in the database" });
                 }
             });
         }
-    } else if (password !== repeatPassword) {
+    } else if ( password !== repeatPassword ) {
         return res.status(401).send({ response: "Password and repeat password should match" });
     } else {
         return res.status(401).send({ response: "Missing fields" });
@@ -59,11 +59,10 @@ router.post("/signup", (req, res) => {
 //Login route (POST) - http://localhost:9091/api/users/login
 // Login via email and password
 router.post("/login", async (req, res) => {
-    const {email, password} = req.body;
+    const { email, password } = req.body;
 
     if ( email && password ) {
-        const users = await User.query().select().where({email: email}).limit(1);
-        const user = users[0];
+        const [ user ] = await User.query().select().where({email: email}).limit(1);
 
         if ( !user ) {
             return res.status(404).send({ response: "Wrong email and/or password" })
@@ -74,13 +73,13 @@ router.post("/login", async (req, res) => {
                 return res.status(500).send({});
             } 
             if ( !isSame ) {
-                return res.status(404).send({response: 'error'});
+                return res.status(400).send({response: 'error'});
             } else {
                 return res.status(200).send({ email: user.email, id: user.id }); 
             }
         });
     } else {
-        return res.status(404).send({ response: "Missing email or password" });
+        return res.status(400).send({ response: "Missing email or password" });
     }
     
 });
