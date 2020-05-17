@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+.App {
+  max-width: 1250px;
+  width: 80%;
+  margin: auto;
+}
+.search-input-wrapper { 
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding:0.5rem;
+  min-width: 15rem;;
+}
+.search-input {
+  border: none;
+  min-width: 13rem;
+}
+
+.react-date-picker__wrapper {
+  border: none!important;;
+}
+.form-container {
+  width: 100%;
+  height: 50rem;;
+  position: absolute;
+  background:white;
+  z-index: 2;
+}
