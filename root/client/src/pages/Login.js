@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
-// import {Link, useHistory, useLocation } from "react-router-dom"
+
 
 const Login = (props) => {
 
 
   return (
-    <div>
-      <h2>login route</h2>
-      <form >
-      <input type="text" name="username"  placeholder="username"  required />
-      <input type="password" name="password" placeholder="password" required />
-      <input type="submit" value="login"></input>
+    <div className="form-container">
+      <h2>login </h2>
+      <form className="d-flex align-items-start flex-column">
+        <input className="m-2" type="text" name="email" placeholder="email" required />
+        <input className="m-2" type="password" name="password" placeholder="password" required />
+        <input className="m-2" type="submit" value="login"></input>
       </form>
       <br></br>
         {/* <Link to='/forgot-password'>Did you forgot you password?</Link><br></br>

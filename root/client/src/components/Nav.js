@@ -9,12 +9,12 @@ const Nav = () => {
   return (
     <div className="Nav">
       <Router>
-        <ul>
-          <Link to='/'>Home</Link>
+        <ul className="d-flex justify-content-end">
+        <div className="m-2"><Link to='/'>Home</Link></div>
           <br></br>
-          <Link to='/login'>Login</Link>
+          <div className="m-2"> <Link to='/login'>Login</Link></div>
           <br></br>
-          <Link to='/signup'>Signup</Link>
+          <div className="m-2"><Link to='/signup'>Signup</Link></div>
          
         </ul>
         <div>
