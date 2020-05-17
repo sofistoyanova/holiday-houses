@@ -9,7 +9,6 @@ router.get('/', async (req, res) => {
     res.send(users)
 })
 
-
 //Signup route (POST) - http://localhost:9091/api/users/signup
 router.post("/signup", (req, res) => {
     const { email, password, repeatPassword, first_name, last_name } = req.body; 
@@ -95,6 +94,7 @@ router.get("/userprofile/:id", async (req, res) => {
         res.status(401).send({response: 'Error in loading user profile'});
     }
 });
+
 
 
 module.exports = router
