@@ -7,32 +7,145 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-}
 .App {
   max-width: 1250px;
   width: 80%;
   margin: auto;
+  
+}
+h3 {
+  color:#3B8182
+}
+.green-blue {
+  color:#3B8182
+
+}
+button{
+  border: none;
+  border-radius: 0.3rem!important;
+}
+button.white {
+  background-color: white;
+  color:#0EB5B9
+}
+.white{
+  color: white;
+}
+.section {
+  margin: 3rem 0;;
 }
 .search-input-wrapper { 
   border: 1px solid black;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   padding:0.5rem;
-  min-width: 15rem;;
+  min-width: 10rem;;
 }
 .search-input {
   border: none;
+  min-width: 10rem;
+}
+.search-input.where {
   min-width: 13rem;
 }
 
+.search-input.guests {
+  min-width: 6rem;
+  max-width: 6rem;
+}
 .react-date-picker__wrapper {
   border: none!important;;
 }
 .form-container {
   width: 100%;
   height: 50rem;;
-  position: absolute;
-  background:white;
-  z-index: 2;
 }
+.search-input-wrapper.btn {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+/* ////////////////////////////////////////////// */
+.hero-container {
+  z-index: -1;
+  position: absolute;
+  top: 3rem;
+  left: 0;
+  right: 0;
+}
+.hero-overlay { 
+  background-color: #3B8182;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.hero-image {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* ////////////////////////////////////////////// */
+.main-filter {
+  background-color: white;
+  margin-top: 25rem;
+  padding: 3rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0.1rem 0.1rem 0.5rem lightgrey;
+
+}
+
+
+/* ////////////////////////////////////////////// */
+.space-wrapper.col, .home-wrapper.col, .why-card-wrapper.col {
+  box-shadow: 0.1rem 0.1rem 0.5rem lightgrey;
+  padding: 0!important;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.space-bottom {
+  background-color: #FFD68D;
+}
+.home-wrapper .space-bottom {
+  background-color: #826B63;
+}
+
+.space-img {
+  width: 100%;
+  height: 15rem;
+  object-fit: cover;
+}
+
+/* ////////////////////////////////////////////// */
+.why-icon{ 
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+}
+.why-card-wrapper {
+  max-width: 10rem;
+}
+
+/* ////////////////////////////////////////////// */
+
+
+
+/* ////////////////////////////////////////////// */
+
+
+
+
+/* ////////////////////////////////////////////// */
+
+
+/* ////////////////////////////////////////////// */
+
+
+/* ////////////////////////////////////////////// */
+
+
+
+
+

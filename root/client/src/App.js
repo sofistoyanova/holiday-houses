@@ -1,10 +1,10 @@
 import React from 'react';
-import Header from './components/Header.js'
+import Nav from './components/top/Nav.js'
 
 function App() {
   return (
     <div className="App">
-      <Header></Header>
+      <Nav></Nav>
     </div>
   );
 }
