@@ -12,6 +12,7 @@ const listSpaces = spaces.map((space) =>
 		<img className="space-img" src={space.image} alt="space "></img>
 		<div className="d-flex justify-content-between space-bottom">
 			<h5 className="d-flex align-self-center m-2 white" >{space.title}</h5>
+			<button className="white m-2 p-1" >{space.title}</button>
 		</div>
     </div>
 );

@@ -1,7 +1,6 @@
 import { FaSearchLocation } from 'react-icons/fa';
 import React, { Component } from 'react';
 import DatePicker from 'react-date-picker';
-// import { Button } from 'reactstrap';
 
 class MainFilter extends Component {
   state = {
