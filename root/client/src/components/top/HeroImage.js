@@ -11,8 +11,8 @@ export default class HeroImage extends Component {
 
     return (
       <div className="hero-container">
-		  <div className="hero-overlay"></div>
-			<img className="hero-image" src={hero} alt="Hero photography"></img>
+        <div className="hero-overlay"></div>
+        <img className="hero-image" src={hero} alt="Hero photography"></img>
       </div>
      
     );

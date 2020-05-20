@@ -18,14 +18,19 @@ exports.up = function(knex) {
         table.text('description')
         table.float('price_per_night')
         table.text('image_name')
-        table.integer('user_id').unsigned() // add later - .notNullable()
+        table.integer('owner_id').unsigned() // add later - .notNullable() // this is the owner
 
         // Set foreign key
-        table.foreign('user_id')
+        table.foreign('owner_id')
           .references('id')
           .inTable('users')
           .onDelete('CASCADE')
           .onUpdate('CASCADE')
+      })
+      .createTable('bookings', (table) => {
+        table.integer('house_id').unsigned().notNullable()
+        table.integer('renter_id').unsigned().notNullable()
+        table.timestamp('created_at').defaultTo(knex.fn.now())
       })
   };
   
