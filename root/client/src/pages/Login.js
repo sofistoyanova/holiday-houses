@@ -30,9 +30,9 @@ const Login = (props) => {
           // history.push("/") // To home 
         })
       } else if( data.status ===  404){
-        console.error(data)
+        console.log(data)
       } else {
-        console.error(data)
+        console.log(data)
       }
     })
   }

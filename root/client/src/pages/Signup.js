@@ -1,19 +1,93 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom';
 // import {Link, useHistory, useLocation } from "react-router-dom"
 
 const Signup = (props) => {
 
+  const [ email, setEmail ]  = useState("");
+  const [ password, setPassword] = useState("");
+  const [ repeatPassword, setRepeatPassword ]= useState("");
+  const [ first_name, setFirstName] = useState("");
+  const [ last_name, setLastName] = useState("");
+  const history = useHistory();
+
+  const Signup = async (e) => {
+    e.preventDefault();
+    await fetch("http://localhost:9091/api/users/signup", {
+      method: "POST",
+      body: JSON.stringify({
+        email,
+        password,
+        repeatPassword,
+        first_name,
+        last_name
+      }),
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(data => {
+      if (data.status === 200) {
+        console.log('Success in signup')
+        history.push("/login");
+      } else if ( data.status === 400 ) {
+        console.log("User already exists");
+      } else if ( data.status === 411 ) {
+        console.log("Password not meeting requirements");
+      }
+      console.log(data);
+    })
+  }
 
   return (
     <div className="form-container">
       <h2>Signup</h2>
       <form className="d-flex align-items-start flex-column">
-          <input className="m-2" type="text" name="email" placeholder="email" required />
-          <input className="m-2" type="password" name="password" placeholder="password" required />
-          <input className="m-2" type="password" name="repeatPassword" placeholder="Repeat password" required />
-          <input className="m-2" type="text" name="firstName"  placeholder="First Name"  required />
-          <input className="m-2" type="text" name="lastName"  placeholder="Last Name"  required />
-          <input className="m-2" type="submit" className="btn btn-info" value="Signup"></input>
+          <input className="m-2" 
+          type="text" 
+          name="email" 
+          placeholder="email" 
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+          required />
+
+          <input className="m-2" 
+          type="password" 
+          name="password" 
+          placeholder="password" 
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+          required />
+
+          <input className="m-2" 
+          type="password" 
+          name="repeatPassword" 
+          placeholder="Repeat password" 
+          value={repeatPassword}
+          onChange={e => setRepeatPassword(e.target.value)}
+          required />
+
+          <input className="m-2" 
+          type="text" 
+          name="firstName"  
+          placeholder="First Name"  
+          value={first_name}
+          onChange={e => setFirstName(e.target.value)}
+          required />
+
+          <input className="m-2" 
+          type="text" 
+          name="lastName"  
+          placeholder="Last Name"  
+          value={last_name}
+          onChange={e => setLastName(e.target.value)}
+          required />
+
+          <input className="m-2" 
+          type="submit" 
+          className="btn btn-info" 
+          value="Signup"
+          onClick={Signup}/>
       </form>
       <br></br>
         {/* <Link to='/forgot-password'>Did you forgot you password?</Link><br></br>
