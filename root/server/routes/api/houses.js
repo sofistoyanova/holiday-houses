@@ -89,5 +89,21 @@ router.post('/registerhouse', (req, res) => {
     })
 })
 
+// Overview of a specific house route (NOT TESTED!)
+router.get("/specific/:id", async (req, res) => {
+    const { id } = req.params;
+    const specificHouse = await House.query().select().where({id: id}).limit(1);
+    res.send(200).send({
+        city: specificHouse.city,
+        street: specificHouse.street,
+        street_number: specificHouse.streetNumber,
+        // pk: pk,
+        title: specificHouse.title,
+        description: specificHouse.description,
+        price_per_night: specificHouse.pricePerNight,
+        image_name: specificHouse.fileName
+    })
+});
+
 
 module.exports = router

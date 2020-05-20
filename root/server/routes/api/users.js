@@ -95,6 +95,55 @@ router.get("/userprofile/:id", async (req, res) => {
     }
 });
 
+// Update user password
+router.post("/updatepw/:id", (req, res) => {
+    const { id } = req.params;
+    const { newPassword, repeatPassword } = req.body;
+
+    if(newPassword && repeatPassword && newPassword === repeatPassword) {
+        if ( newPassword.length < 8 ) {
+            return res.status(400).send({response: "Password does not fulfill the requirements"})
+        } else {
+            bcrypt.hash(newPassword, saltRounds, async (error, hashPw) => {
+                if( error ) { 
+                    return res.status(500).send({response: 'Something went wrong'});
+                }
+
+                try {
+                    const user_id = id;
+                    const updatePw = await User.query().update({
+                        password: hashPw
+                    }).where({id: user_id});
+
+                    if( updatePw < 1 ) {
+                        return res.send({response: 'Nope ;) '})
+                    }
+
+                    res.status(200).send({
+                        response: 'Password has succeccfully been updated!',
+                        updatePassword: updatePw,
+                        user_id: user_id // Returning the id for edited user
+                    });
+                    
+                } catch (error) {
+                    console.log(error)
+                    return res.status(500).send({ response: "Something went wrong with the database" });
+                }
+            })
+        }
+    } else if (newPassword !== retypePassword) {
+        return res.send({ response: "Password and repeat password are not the same" });
+    } else {
+        return res.send({ response: "Missing fields" });
+    }
+});
+
+// Update first name
+// router.post("/update-names/:id", (req, res) => {
+//     const { id } = req.params;
+//     const { first_name, last_name } = req.body;
+
+// });
 
 
 module.exports = router
