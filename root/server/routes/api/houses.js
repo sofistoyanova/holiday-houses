@@ -89,5 +89,27 @@ router.post('/registerhouse', (req, res) => {
     })
 })
 
+// Overview of a specific house route (NOT TESTED!)
+router.get("/specific/:id", async (req, res) => {
+    const { id } = req.params;
+    const specificHouses = await House.query().select().where({id: id}).limit(1);
+    const foundHouse = specificHouses[0]
+    if (foundHouse) {
+        return res.status(200).send({
+            id: foundHouse.id,
+            city: foundHouse.city,
+            street: foundHouse.street,
+            street_number: foundHouse.streetNumber,
+            // pk: pk,
+            title: foundHouse.title,
+            description: foundHouse.description,
+            price_per_night: foundHouse.pricePerNight,
+            image_name: foundHouse.fileName
+        })
+    } else {
+        return res.status(404).send({respone: 'House does not exists'})
+    }
+});
+
 
 module.exports = router

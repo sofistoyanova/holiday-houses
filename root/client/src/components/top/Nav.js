@@ -1,4 +1,4 @@
-import React, { } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Login from '../../pages/Login.js'
 import Signup from '../../pages/Signup.js'
@@ -6,7 +6,9 @@ import Home from '../../pages/Home.js'
 import Bookings from '../../pages/Bookings.js'
 
 const Nav = () => {
-  
+
+  const [ userId, setUserId ] = useState("");
+
   return (
     <div className="Nav">
       <Router>
@@ -24,7 +26,7 @@ const Nav = () => {
         <div>
             <Switch>
                 <Route path="/login">
-                  <Login  />
+                  <Login setUserId={setUserId} />
                 </Route>
                 <Route path="/signup">
                   <Signup />
