@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom';
 // import {Link, useHistory, useLocation } from "react-router-dom"
+import HeroImage from '../components/top/HeroImage.js'
+import Footer from '../components/Footer.js'
 
 const Signup = (props) => {
 
@@ -40,58 +42,64 @@ const Signup = (props) => {
   }
 
   return (
-    <div className="form-container">
-      <h2>Signup</h2>
-      <form className="d-flex align-items-start flex-column">
-          <input className="m-2" 
-          type="text" 
-          name="email" 
-          placeholder="email" 
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          required />
+    <div className="signup-page">
+      <HeroImage></HeroImage>
+      <div className="form-container signup-container">
+        <h2>Signup</h2>
+        <form className="d-flex align-items-start flex-column">
+            <input className="m-2 input" 
+            type="text" 
+            name="email" 
+            placeholder="email" 
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            required />
 
-          <input className="m-2" 
-          type="password" 
-          name="password" 
-          placeholder="password" 
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-          required />
+            <input className="m-2 input" 
+            type="password" 
+            name="password" 
+            placeholder="password" 
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            required />
 
-          <input className="m-2" 
-          type="password" 
-          name="repeatPassword" 
-          placeholder="Repeat password" 
-          value={repeatPassword}
-          onChange={e => setRepeatPassword(e.target.value)}
-          required />
+            <input className="m-2 input" 
+            type="password" 
+            name="repeatPassword" 
+            placeholder="Repeat password" 
+            value={repeatPassword}
+            onChange={e => setRepeatPassword(e.target.value)}
+            required />
 
-          <input className="m-2" 
-          type="text" 
-          name="firstName"  
-          placeholder="First Name"  
-          value={first_name}
-          onChange={e => setFirstName(e.target.value)}
-          required />
+            <input className="m-2 input" 
+            type="text" 
+            name="firstName"  
+            placeholder="First Name"  
+            value={first_name}
+            onChange={e => setFirstName(e.target.value)}
+            required />
 
-          <input className="m-2" 
-          type="text" 
-          name="lastName"  
-          placeholder="Last Name"  
-          value={last_name}
-          onChange={e => setLastName(e.target.value)}
-          required />
+            <input className="m-2 input" 
+            type="text" 
+            name="lastName"  
+            placeholder="Last Name"  
+            value={last_name}
+            onChange={e => setLastName(e.target.value)}
+            required />
 
-          <input className="m-2" 
-          type="submit" 
-          className="btn btn-info" 
-          value="Signup"
-          onClick={Signup}/>
-      </form>
-      <br></br>
-        {/* <Link to='/forgot-password'>Did you forgot you password?</Link><br></br>
-        <Link to='/signup'>Sign up instead?</Link> */}
+            <input
+            type="submit" 
+            className="m-2 input btn btn-info" 
+            value="Signup"
+            onClick={Signup}/>
+        </form>
+        <br></br>
+          {/* <Link to='/forgot-password'>Did you forgot you password?</Link><br></br>
+          <Link to='/signup'>Sign up instead?</Link> */}
+          <div className="fixed-footer">
+				<Footer></Footer>
+			</div>
+      </div>
     </div>
   )
 }

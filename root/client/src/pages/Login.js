@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-
+import HeroImage from '../components/top/HeroImage.js'
+import Footer from '../components/Footer.js'
 const Login = (props) => {
 
   const [ email, setEmail ] = useState("");
@@ -38,38 +39,44 @@ const Login = (props) => {
   }
 
   return (
-    <div className="form-container">
-      <h2>login </h2>
-      <form className="d-flex align-items-start flex-column">
-        <input 
-        className="m-2" 
-        type="text" 
-        name="email" 
-        placeholder="email" 
-        value={email}
-        onChange={e => setEmail(e.target.value)}
-        required />
+	  <div className="login-page">
+		<HeroImage></HeroImage>
+		<div className="form-container login-container">
+		<h2>Login </h2>
+		<form className="d-flex align-items-start flex-column">
+			<input 
+			className="m-2 input" 
+			type="text" 
+			name="email" 
+			placeholder="email" 
+			value={email}
+			onChange={e => setEmail(e.target.value)}
+			required />
 
-        <input 
-        className="m-2" 
-        type="password" 
-        name="password" 
-        placeholder="password" 
-        value={password}
-        onChange={e => setPassword(e.target.value)}
-        required />
+			<input 
+			className="m-2 input" 
+			type="password" 
+			name="password" 
+			placeholder="password" 
+			value={password}
+			onChange={e => setPassword(e.target.value)}
+			required />
 
-        <input 
-        className="m-2" 
-        type="button" 
-        onClick={login}
-        value="login"></input>
+			<input
+			className="m-2 input btn btn-info" 
+			type="button" 
+			onClick={login}
+			value="login"></input>
 
-      </form>
-      <br></br>
-        {/* <Link to='/forgot-password'>Did you forgot you password?</Link><br></br>
-        <Link to='/signup'>Sign up instead?</Link> */}
-    </div>
+		</form>
+		<br></br>
+			{/* <Link to='/forgot-password'>Did you forgot you password?</Link><br></br>
+			<Link to='/signup'>Sign up instead?</Link> */}
+			<div className="fixed-footer">
+				<Footer></Footer>
+			</div>
+		</div>
+	</div>
   )
 }
 
