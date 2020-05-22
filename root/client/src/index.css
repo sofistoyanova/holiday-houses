@@ -20,9 +20,13 @@ h3 {
   color:#3B8182
 
 }
-button{
+button, .button{
+  font-size: 2rem;
   border: none;
   border-radius: 0.3rem!important;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+
 }
 button.white {
   background-color: white;
@@ -32,6 +36,7 @@ button.blue {
   color: white;
   background-color:#0EB5B9;
   border: none;
+
 }
 .white{
   color: white;
@@ -62,7 +67,7 @@ button.blue {
 }
 .form-container {
   width: 100%;
-  height: 50rem;;
+  height: auto;
 }
 .search-input-wrapper.btn {
   display: flex;
@@ -77,6 +82,7 @@ button.blue {
   top: 3rem;
   left: 0;
   right: 0;
+  min-height: 37rem;
 }
 .hero-overlay { 
   background-color: #3B8182;
@@ -86,16 +92,22 @@ button.blue {
   left: 0;
   right: 0;
   bottom: 0;
+  min-height: 37rem;
+
 }
 .hero-image {
   width: 100%;
   object-fit: cover;
+  min-height: 37rem;
+}
+.hero-image-pos-rel {
+  height: 37rem;
 }
 
 /* ////////////////////////////////////////////// */
 .main-filter {
   background-color: white;
-  margin-top: 25rem;
+  margin-top: -4rem;
   padding: 3rem 2rem;
   border-radius: 0.5rem;
   box-shadow: 0.1rem 0.1rem 0.5rem lightgrey;
@@ -150,6 +162,9 @@ button.blue {
   max-height: 25rem;
   object-fit: cover;
 }
+.middle-container .hero-overlay {
+  min-height: 25rem;
+}
 
 .middle-container-text {
   position: absolute;
@@ -189,8 +204,30 @@ button.blue {
   right: 0;
 }
 
+.fixed-footer {
+  position: absolute;
+  bottom: 20rem;
+  left: 0;
+  right: 0;
+}
 /* ////////////////////////////////////////////// */
-
+.login-container, .signup-container {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0.1rem 0.1rem 0.5rem lightgrey;
+  max-width: 40rem;
+  margin: auto;
+  margin-top: 5rem;
+  
+}
+.login-container .input, .signup-container .input {
+  width: 100%;
+  padding: 0.3rem;
+}
+.login-container h2, .signup-container h2 {
+  text-align: center;
+}
 
 /* ////////////////////////////////////////////// */
 
