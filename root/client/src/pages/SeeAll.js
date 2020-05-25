@@ -10,9 +10,9 @@ const Bookings = (props) => {
     { id:2 , title:"Villa 2", image:"https://cityapartment.dk/wp-content/uploads/2020/05/stue-952x658.jpg", price:"220", location: "Copenhagen", tags: ["Costal", "Costal", "Costal" ] },
     { id:3 , title:"Villa 3", image:"https://r-cf.bstatic.com/images/hotel/max1024x768/189/189427780.jpg", price:"100", location: "Copenhagen", tags: ["Costal", "Costal", "Costal" ] }
   ]
-  const listTags = allHouses.map(tags => tags.map( tag =>
-  <div>{tag}</div>)
-  );
+//   const listTags = allHouses.map(tags => tags.map( tag =>
+//   tag)
+//   );
 
   const listHouses = allHouses.map((house) =>
       <div className="d-flex house-wrapper mb-3">
