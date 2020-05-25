@@ -250,9 +250,13 @@ button.blue {
 .house-details-top {
   width: 100%;
 }
+.house-tags {
+  color: white;
+  background: #FFD68D;
+  border-radius: 0.3rem
+}
 
-
-
+.see-details { float: right;}
 /* ////////////////////////////////////////////// */
 
 
