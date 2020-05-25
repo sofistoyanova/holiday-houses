@@ -18,6 +18,7 @@ exports.up = function(knex) {
         table.text('description')
         table.float('price_per_night')
         table.text('image_name')
+        table.string('category')
         table.integer('owner_id').unsigned() // add later - .notNullable() // this is the owner
 
         // Set foreign key
