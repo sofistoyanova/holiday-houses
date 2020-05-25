@@ -10,9 +10,7 @@ const Bookings = (props) => {
     { id:2 , title:"Villa 2", image:"https://cityapartment.dk/wp-content/uploads/2020/05/stue-952x658.jpg", price:"220", location: "Copenhagen", tags: ["Costal", "Costal", "Costal" ] },
     { id:3 , title:"Villa 3", image:"https://r-cf.bstatic.com/images/hotel/max1024x768/189/189427780.jpg", price:"100", location: "Copenhagen", tags: ["Costal", "Costal", "Costal" ] }
   ]
-//   const listTags = allHouses.map(tags => tags.map( tag =>
-//   tag)
-//   );
+
 
   const listHouses = allHouses.map((house) =>
       <div className="d-flex house-wrapper mb-3">
@@ -23,9 +21,14 @@ const Bookings = (props) => {
           	<h5 className="d-flex align-self-center text-blue" >${house.price}/NIGHT</h5>
           </div>
           <p>{house.location}</p>
-  			{/* <div>{listTags}</div> */}
+			<div className="d-flex house-tahs-wrapper">
+				<p className="house-tags p-2 mr-2">Costal</p>
+				<p className="house-tags p-2 mr-2">Costal</p>
+				<p className="house-tags p-2 mr-2">Costal</p>
+			</div>
+			
 
-          <button className="button blue p-1">See details</button>
+          <button className="button blue p-1 see-details">See details</button>
         </div>
       </div>
   );
