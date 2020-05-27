@@ -28,7 +28,10 @@ button, .button{
   padding: 0.5rem 1rem;
 
 }
-button.white {
+.text-blue {
+  color:#0EB5B9
+}
+button.white, .button.white  {
   background-color: white;
   color:#0EB5B9
 }
@@ -240,6 +243,33 @@ button.blue {
   margin: 0; 
 }
 
+.house-wrapper {
+  box-shadow: 0.1rem 0.1rem 0.5rem lightgrey;
+  border-radius: 0.5rem;
+}
+.house-wrapper .house-img {
+  width: 20rem;
+  height: 15rem;
+  object-fit: cover;
+}
+.house-details {
+  width: 100%;
+  
+}
+.house-details-top {
+  width: 100%;
+}
+.house-tags {
+  color: white;
+  background: #FFD68D;
+  border-radius: 0.3rem
+}
+
+.see-details { float: right;}
+/* ////////////////////////////////////////////// */
+
+
+
 .form_container textarea {
   overflow: auto;
   outline: none;
@@ -247,6 +277,24 @@ button.blue {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+/* ////////////////////////////////////////////// */
+
+
+
+
+
+/* ////////////////////////////////////////////// */
+
+
+
+
+/* ////////////////////////////////////////////// */
+
+
+
+
+
+/* ////////////////////////////////////////////// */
 
   resize: none;
   height: 200px;

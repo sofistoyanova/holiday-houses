@@ -6,6 +6,7 @@ import Home from '../../pages/Home.js'
 import Bookings from '../../pages/Bookings.js'
 import HouseUpload from '../../pages/HouseUpload.js'
 import BookHouse from '../../pages/BookHouse.js'
+import SeeAll from '../../pages/SeeAll.js'
 
 const Nav = () => {
 
@@ -17,7 +18,7 @@ const Nav = () => {
         <ul className="d-flex justify-content-end">
           <h5 className="m-2"><Link to='/'>Home</Link></h5>
           <br></br>
-          <h5 className="m-2"><Link to='/bookings'>Bookings</Link></h5>
+          <h5 className="m-2"><Link to='/seeAll'>See all</Link></h5>
           <br></br>
           <h5 className="m-2"> <Link to='/login'>Login</Link></h5>
           <br></br>
@@ -40,8 +41,8 @@ const Nav = () => {
                 <Route exact path="/">
                   <Home />
                 </Route>
-                <Route exact path="/bookings">
-                  <Bookings />
+                <Route exact path="/seeAll">
+                  <SeeAll />
                 </Route>
                 <Route exact path="/upload-house">
                   <HouseUpload />
