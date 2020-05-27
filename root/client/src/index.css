@@ -230,8 +230,81 @@ button.blue {
 }
 
 /* ////////////////////////////////////////////// */
+.form_container {
+  margin-bottom: 30px;
+}
+.right-container {
+  margin: 0;
+}
+.form_container {
+  margin: 0; 
+}
 
+.form_container textarea {
+  overflow: auto;
+  outline: none;
 
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 
+  resize: none;
+  height: 200px;
+}
 
+.form_container input,
+.form_container select,
+.form_container textarea {
+  width: 350px;
+  margin: 5px;
+  border: 1px solid #3B8182;
+  border-radius: 5px;
+  padding: 5px;
+}
 
+.form_container select {
+  color: #3B8182;
+}
+
+.inputContainer {
+  display: flex;
+}
+
+.inputContainer label {
+  width: 90px;
+  margin-right: 50px;
+  color: #3B8182;
+}
+
+.form_container, .right-container {
+  margin-bottom: 40px;
+}
+
+.form_container h2 {
+  margin-bottom: 30px;
+  color:  #3b8182;
+}
+
+.form_container button {
+  margin-top: 30px;
+}
+
+.smallerInputs {
+  width: 100px !important;
+}
+
+.checkbox {
+  width: 10px !important;
+}
+
+.image_container img {
+  max-width: 400px;
+  margin: 10px 0;
+}
+
+.errorMsg {
+  border-bottom: 1px solid red;
+  color: red;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
