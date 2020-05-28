@@ -77,10 +77,11 @@ router.post('/registerhouse', upload.single('file'), async (req, res) => {
     const fileName = Math.floor(Math.random() * 1000) + file.originalname
     console.log(file)
     
+    cityLowerCased = city.toLowerCase()
     try {
         //await pipeline(file.stream, fs.createWriteStream(`${__dirname}/uploads/${fileName}`))
-        const house = await House.query().insert({
-            city: city,
+        await House.query().insert({
+            city: cityLowerCased,
             pk: zip,
             title: title,
             description: description,
@@ -185,6 +186,31 @@ router.get("/specific/:id", async (req, res) => {
         return res.status(404).send({respone: 'House does not exists'})
     }
 });
+
+router.get('/filterhouse', async(req, res) => {
+    const {city, startDate, endDate, rooms} = req.body
+        try {
+            const cityLowerCased = city.toLowerCase()
+            if(city) {
+                const houses = await House.query().select().where({ city: cityLowerCased })
+                if(houses.length < 0 ) {
+                    return res.send({status: 404, message: 'Houses not found'})
+                }
+                return res.send(houses)
+            } else if(rooms) {
+                const houses = await House.query().select().where({ rooms })
+                if(houses.length < 0 ) {
+                    return res.send({status: 404, message: 'Houses not found'})
+                }
+                return res.send(houses)
+            } else if(startDate && endDate) {
+                
+            }
+    } catch(err) {
+        console.log(err)
+        return res.send({status: 500, message: 'Could not find anything'})
+    }
+})
 
 
 module.exports = router
