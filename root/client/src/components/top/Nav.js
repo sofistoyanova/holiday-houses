@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Login from '../../pages/Login.js'
 import Signup from '../../pages/Signup.js'
 import Home from '../../pages/Home.js'
-import Bookings from '../../pages/Bookings.js'
 import HouseUpload from '../../pages/HouseUpload.js'
 import BookHouse from '../../pages/BookHouse.js'
 import SeeAll from '../../pages/SeeAll.js'
