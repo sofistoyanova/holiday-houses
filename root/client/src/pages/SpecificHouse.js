@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 import MainFilter from '../components/top/MainFilter.js'
 import HeroImage from '../components/top/HeroImage.js'
 import Footer from '../components/Footer.js'
@@ -37,7 +38,7 @@ const SpecificHouse = (props) => {
   //     )
   // }, [])
 
-let house =  { id:1 , title:"Villa 1",city:"Copenhagen",postalCode:2300, rooms:3, bathrooms:2, beds:5,  description:"bla bla bla bla", price_per_night:130, pet_allowed:0,  image_name:"https://billeder.apollorejser.dk/villas-alondras-suites-1567252261-174037-WideInspirationalPhoto.jpg"}
+let house =  { id:1 , title:"Villa 1",city:"Copenhagen",postalCode:2300, rooms:3, bathrooms:2, beds:5,  description:"bla bla bla bla", price_per_night:130, pet_allowed:1,  image_name:"https://billeder.apollorejser.dk/villas-alondras-suites-1567252261-174037-WideInspirationalPhoto.jpg"}
   return (
     <div>
         <HeroImage></HeroImage>
@@ -45,17 +46,31 @@ let house =  { id:1 , title:"Villa 1",city:"Copenhagen",postalCode:2300, rooms:3
         <MainFilter></MainFilter>
         <div className="specific-house">
           <div className="d-flex">
-			  <img src={house.image_name}></img>
-            <div className="d-flex justify-content-between">
-				<div>
-					<p>{house.title}</p>
-					<p>{house.city} {house.postalCode}</p>
-				</div>
-  				<h5>${house.price_per_night} / NIGHT</h5>
-
-            </div>
-          </div>
-            {house.city}
+			<img  className="single-house-image" src={house.image_name}></img>
+			<div className="w-100 position-relative p-4 ">
+				<div className="">
+					<div className="d-flex justify-content-between">
+						<h5 className="text-blue">{house.title}</h5>
+						<h5 className="text-blue">${house.price_per_night} / NIGHT</h5>
+					</div>
+						<p>{house.city}, {house.postalCode}</p>
+						<h5 className="text-blue">Facilities</h5>
+						<div className="d-flex">
+							<p className="house-tags p-2 mr-2">{house.rooms} room(s)</p>
+							<p className="house-tags p-2 mr-2">{house.bathrooms} bathroom(s)</p>
+							<p className="house-tags p-2 mr-2">{house.beds} bed(s)</p>
+							<p className="house-tags p-2 mr-2">{house.pet_allowed === 1 ? "Pets allowed" : "No pets allowed" }</p>
+						</div>
+					</div>
+					<div className="search-input-wrapper days">Days:<input className="search-input days"  type="number" min="1" max="100"  /></div>
+					<Link to='/book-house' className="button blue p-2 pl-3 pr-3 see-details book-now">Book now</Link>
+					</div>
+			</div>
+			<div className="house-description p-4">
+				<h5>Description</h5>
+				<p>{house.description} </p>
+			</div>
+           
 		    </div>
 
         <Footer></Footer>

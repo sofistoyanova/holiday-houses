@@ -182,6 +182,7 @@ router.get("/house/:id", async (req, res) => {
             beds: foundHouse.beds,
             description: foundHouse.description,
             price_per_night: foundHouse.price_per_night,
+            pet_allowed: foundHouse.pet_allowed,
             image_name: foundHouse.image_name
         })
     } else {

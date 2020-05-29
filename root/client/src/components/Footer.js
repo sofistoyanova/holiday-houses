@@ -4,7 +4,7 @@ import React from 'react'
 const HomeSpaces = (props) => {
 
   return (
-		<section >
+		<section className="footer">
 			 
 			<div className="footer-content">
 

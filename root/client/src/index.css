@@ -60,6 +60,9 @@ button.blue {
 .search-input.where {
   min-width: 13rem;
 }
+.search-input-wrapper.days {
+  width: 15rem;;
+}
 
 .search-input.guests {
   min-width: 6rem;
@@ -198,7 +201,9 @@ button.blue {
 
 
 /* ////////////////////////////////////////////// */
-
+.footer{ 
+  margin-top: 3rem;
+}
 .footer-content {
   background-color:#0EB5B9 ;
   height: 20rem;
@@ -285,28 +290,40 @@ button.blue {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-/* ////////////////////////////////////////////// */
-
-
-
-
-
-/* ////////////////////////////////////////////// */
-
-
-
-
-/* ////////////////////////////////////////////// */
-
-
-
-
-
-/* ////////////////////////////////////////////// */
-
   resize: none;
   height: 200px;
 }
+
+/* ////////////////////////////////////////////// */
+
+.single-house-image{
+ width: 50%; 
+ height: 25rem;
+ object-fit: cover;
+}
+.house-description {
+  background-color: rgb(14, 181, 185, 0.3);
+}
+.book-now{ 
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+/* ////////////////////////////////////////////// */
+
+
+
+
+/* ////////////////////////////////////////////// */
+
+
+
+
+
+/* ////////////////////////////////////////////// */
+
+
 
 .form_container input,
 .form_container select,
