@@ -247,10 +247,14 @@ button.blue {
   box-shadow: 0.1rem 0.1rem 0.5rem lightgrey;
   border-radius: 0.5rem;
 }
+.house-title {
+  text-transform: capitalize;
+}
 .house-wrapper .house-img {
-  width: 20rem;
+  width: 25rem;
   height: 15rem;
   object-fit: cover;
+  background-color: black;
 }
 .house-details {
   width: 100%;
@@ -265,7 +269,11 @@ button.blue {
   border-radius: 0.3rem
 }
 
-.see-details { float: right;}
+.see-details { 
+  float: right;
+  color: white;
+  background:#0EB5B9;
+}
 /* ////////////////////////////////////////////// */
 
 

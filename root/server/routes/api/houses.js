@@ -37,7 +37,8 @@ const storage = multer.diskStorage({
 
 router.get('/allhouses', async (req, res) => {
     const houses = await House.query().select()
-    res.send(houses)
+    res.status(200).send(houses)
+    
 })
 
 const upload = multer({ storage: storage });
@@ -166,21 +167,22 @@ router.post('/registerhouse', upload.single('file'), async (req, res) => {
 // })
 
 // Overview of a specific house route (NOT TESTED!)
-router.get("/specific/:id", async (req, res) => {
+router.get("/house/:id", async (req, res) => {
     const { id } = req.params;
     const specificHouses = await House.query().select().where({id: id}).limit(1);
     const foundHouse = specificHouses[0]
     if (foundHouse) {
         return res.status(200).send({
             id: foundHouse.id,
-            city: foundHouse.city,
-            street: foundHouse.street,
-            street_number: foundHouse.streetNumber,
-            // pk: pk,
             title: foundHouse.title,
+            city: foundHouse.city,
+            postalCode: foundHouse.pk,
+            rooms: foundHouse.rooms,
+            bathrooms: foundHouse.bathrooms,
+            beds: foundHouse.beds,
             description: foundHouse.description,
-            price_per_night: foundHouse.pricePerNight,
-            image_name: foundHouse.fileName
+            price_per_night: foundHouse.price_per_night,
+            image_name: foundHouse.image_name
         })
     } else {
         return res.status(404).send({respone: 'House does not exists'})
