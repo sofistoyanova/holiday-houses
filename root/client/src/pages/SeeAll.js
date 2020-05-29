@@ -1,34 +1,47 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
+
 import MainFilter from '../components/top/MainFilter.js'
 import HeroImage from '../components/top/HeroImage.js'
 import Footer from '../components/Footer.js'
 
 
-const Bookings = (props) => {
-  let allHouses = [
-    { id:1 , title:"Villa 1", image:"https://billeder.apollorejser.dk/villas-alondras-suites-1567252261-174037-WideInspirationalPhoto.jpg", price:"120", location: "Copenhagen", tags: ["Costal", "Costal", "Costal" ] },
-    { id:2 , title:"Villa 2", image:"https://cityapartment.dk/wp-content/uploads/2020/05/stue-952x658.jpg", price:"220", location: "Copenhagen", tags: ["Costal", "Costal", "Costal" ] },
-    { id:3 , title:"Villa 3", image:"https://r-cf.bstatic.com/images/hotel/max1024x768/189/189427780.jpg", price:"100", location: "Copenhagen", tags: ["Costal", "Costal", "Costal" ] }
-  ]
+const Houses = (props) => {
 
+  const [houses, setHouses] = useState([])
+  // const userId = (props.userId)
+  useEffect(() => {
+    fetch(`http://localhost:9091/api/houses/allhouses/`, {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+      .then((response) => response.json())
+      .then((data) => setHouses(data))
+  }, [])
 
-  const listHouses = allHouses.map((house) =>
-      <div className="d-flex house-wrapper mb-3">
-        <img className="house-img" src={house.image} alt="house "></img>
+  const listHouses = houses.map((house) =>
+      <div className="d-flex house-wrapper mb-3" key={house.id}>
+        <img className="house-img" src={house.image_name} alt="house "></img>
         <div className="house-details p-3">
           <div className="house-details-top d-flex justify-content-between ">
-          	<h5 className="d-flex align-self-center text-blue" >{house.title}</h5>
-          	<h5 className="d-flex align-self-center text-blue" >${house.price}/NIGHT</h5>
+          	<h4 className="d-flex align-self-center text-blue house-title" >{house.title}</h4>
+          	<h4 className="d-flex align-self-center text-blue" >${house.price_per_night}/NIGHT</h4>
           </div>
-          <p>{house.location}</p>
-			<div className="d-flex house-tahs-wrapper">
-				<p className="house-tags p-2 mr-2">Costal</p>
-				<p className="house-tags p-2 mr-2">Costal</p>
-				<p className="house-tags p-2 mr-2">Costal</p>
-			</div>
-			
-
-          <button className="button blue p-1 see-details">See details</button>
+          <p>{house.city}</p>
+          <div className="d-flex ">
+            <p className="house-tags p-2 mr-2">{house.pet_allowed === 1 ? "Pets allowed" : "No pets allowed" }</p>
+          </div>
+          <div className="d-flex faclities">
+              <p className="m-2">{house.rooms} room(s)</p>
+              <p className="m-2">{house.bathrooms} bathroom(s)</p>
+              <p className="m-2">{house.beds} bed(s)</p>
+          </div>
+          
+          <Link to='/house' className="button blue p-2 pl-3 pr-3 see-details">See all</Link>
+          
         </div>
       </div>
   );
@@ -47,4 +60,4 @@ const Bookings = (props) => {
   )
 }
 
-export default Bookings
+export default Houses

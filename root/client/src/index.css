@@ -60,6 +60,9 @@ button.blue {
 .search-input.where {
   min-width: 13rem;
 }
+.search-input-wrapper.days {
+  width: 15rem;;
+}
 
 .search-input.guests {
   min-width: 6rem;
@@ -198,7 +201,9 @@ button.blue {
 
 
 /* ////////////////////////////////////////////// */
-
+.footer{ 
+  margin-top: 3rem;
+}
 .footer-content {
   background-color:#0EB5B9 ;
   height: 20rem;
@@ -247,10 +252,14 @@ button.blue {
   box-shadow: 0.1rem 0.1rem 0.5rem lightgrey;
   border-radius: 0.5rem;
 }
+.house-title {
+  text-transform: capitalize;
+}
 .house-wrapper .house-img {
-  width: 20rem;
+  width: 25rem;
   height: 15rem;
   object-fit: cover;
+  background-color: black;
 }
 .house-details {
   width: 100%;
@@ -265,7 +274,11 @@ button.blue {
   border-radius: 0.3rem
 }
 
-.see-details { float: right;}
+.see-details { 
+  float: right;
+  color: white;
+  background:#0EB5B9;
+}
 /* ////////////////////////////////////////////// */
 
 
@@ -277,28 +290,40 @@ button.blue {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-/* ////////////////////////////////////////////// */
-
-
-
-
-
-/* ////////////////////////////////////////////// */
-
-
-
-
-/* ////////////////////////////////////////////// */
-
-
-
-
-
-/* ////////////////////////////////////////////// */
-
   resize: none;
   height: 200px;
 }
+
+/* ////////////////////////////////////////////// */
+
+.single-house-image{
+ width: 50%; 
+ height: 25rem;
+ object-fit: cover;
+}
+.house-description {
+  background-color: rgb(14, 181, 185, 0.3);
+}
+.book-now{ 
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+/* ////////////////////////////////////////////// */
+
+
+
+
+/* ////////////////////////////////////////////// */
+
+
+
+
+
+/* ////////////////////////////////////////////// */
+
+
 
 .form_container input,
 .form_container select,

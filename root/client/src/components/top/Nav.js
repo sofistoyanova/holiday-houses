@@ -6,6 +6,7 @@ import Home from '../../pages/Home.js'
 import HouseUpload from '../../pages/HouseUpload.js'
 import BookHouse from '../../pages/BookHouse.js'
 import SeeAll from '../../pages/SeeAll.js'
+import SpecificHouse from '../../pages/SpecificHouse'
 
 const Nav = () => {
 
@@ -18,6 +19,8 @@ const Nav = () => {
           <h5 className="m-2"><Link to='/'>Home</Link></h5>
           <br></br>
           <h5 className="m-2"><Link to='/seeAll'>See all</Link></h5>
+          <br></br>
+          <h5 className="m-2" style={ {display: "none"}}><Link to='/house'>See all</Link></h5>
           <br></br>
           <h5 className="m-2"> <Link to='/login'>Login</Link></h5>
           <br></br>
@@ -42,6 +45,9 @@ const Nav = () => {
                 </Route>
                 <Route exact path="/seeAll">
                   <SeeAll />
+                </Route>
+                <Route exact path="/house">
+                  <SpecificHouse />
                 </Route>
                 <Route exact path="/upload-house">
                   <HouseUpload />
