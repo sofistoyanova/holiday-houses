@@ -298,8 +298,10 @@ button.blue {
 
 .single-house-image{
  width: 50%; 
+ min-width: 50%;
  height: 25rem;
  object-fit: cover;
+ background-color: black; /* if there is no image, display back bg */
 }
 .house-description {
   background-color: rgb(14, 181, 185, 0.3);
