@@ -20,7 +20,7 @@ const Nav = () => {
           <br></br>
           <h5 className="m-2"><Link to='/seeAll'>See all</Link></h5>
           <br></br>
-          <h5 className="m-2" style={ {display: "none"}}><Link to='/house'>See all</Link></h5>
+          <h5 className="m-2" style={{display: "none"}}><Link to='/house'>See all</Link></h5>
           <br></br>
           <h5 className="m-2"> <Link to='/login'>Login</Link></h5>
           <br></br>
@@ -46,8 +46,8 @@ const Nav = () => {
                 <Route exact path="/seeAll">
                   <SeeAll />
                 </Route>
-                <Route exact path="/house">
-                  <SpecificHouse />
+                <Route exact path="/house/:id" component={SpecificHouse}>
+                  {/* <SpecificHouse houseId={houseId}/> */}
                 </Route>
                 <Route exact path="/upload-house">
                   <HouseUpload />

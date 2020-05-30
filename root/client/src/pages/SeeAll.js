@@ -40,7 +40,7 @@ const Houses = (props) => {
               <p className="m-2">{house.beds} bed(s)</p>
           </div>
           
-          <Link to='/house' className="button blue p-2 pl-3 pr-3 see-details">See all</Link>
+          <Link to={`house/${house.id}`} className="button blue p-2 pl-3 pr-3 see-details">See all details</Link>
           
         </div>
       </div>
