@@ -3,9 +3,13 @@ import { Link } from "react-router-dom";
 import MainFilter from '../components/top/MainFilter.js'
 import HeroImage from '../components/top/HeroImage.js'
 import Footer from '../components/Footer.js'
+import DatePicker from 'react-date-picker';
+
 
 
 const SpecificHouse = (props) => {
+  const houseId = props.match.params.id
+  // const id = this.props.params.id
   const [title, setTitle] = useState('')
   const [city, setCity] = useState('')
   const [postalCode, setPostalCode] = useState('')
@@ -16,7 +20,6 @@ const SpecificHouse = (props) => {
   const [price_per_night, setPrice] = useState('')
   const [pet_allowed, setPetAllowed] = useState('')
   const [image_name, setImage] = useState('')
-  const houseId = ('1')
   useEffect(() => {
     fetch(`http://localhost:9091/api/houses/house/${houseId}`, {
       method: 'GET',
@@ -35,13 +38,11 @@ const SpecificHouse = (props) => {
           setBed(data.beds)
           setDescription(data.description)
           setPrice(data.price_per_night)
-		  setPetAllowed(data.pet_allowed)
-		  setImage(data.image_name)
+          setPetAllowed(data.pet_allowed)
+          setImage(data.image_name)
 	  })
   }, [])
-
-// let house =  { id:1 , title:"Villa 1",city:"Copenhagen",postalCode:2300, rooms:3, bathrooms:2, beds:5,  description:"bla bla bla bla", price_per_night:130, pet_allowed:1,  image_name:"https://billeder.apollorejser.dk/villas-alondras-suites-1567252261-174037-WideInspirationalPhoto.jpg"}
-  return (
+return (
     <div>
         <HeroImage></HeroImage>
         <div className="hero-image-pos-rel"></div>
@@ -64,9 +65,15 @@ const SpecificHouse = (props) => {
 							<p className="house-tags p-2 mr-2">{pet_allowed === 1 ? "Pets allowed" : "No pets allowed" }</p>
 						</div>
 					</div>
-					<div className="search-input-wrapper days">Days:<input className="search-input days"  type="number" min="1" max="100"  /></div>
-					<Link to='/book-house' className="button blue p-2 pl-3 pr-3 see-details book-now">Book now</Link>
+          <div className="d-flex">
+            <div className="m-2 search-input-wrapper">Arrive at:<DatePicker className="search-input" /></div>  
+            <div className="search-input-wrapper days m-2">Days:<input className="search-input days"  type="number" min="1" max="100"  /></div>
+				
 					</div>
+          <div><h5 className="text-blue">Total price:</h5></div>
+          <Link to='/book-house' className="button blue p-2 pl-3 pr-3 see-details book-now">Book now</Link>
+          </div>
+					
 			</div>
 			<div className="house-description p-4">
 				<h5>Description</h5>
