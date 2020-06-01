@@ -27,6 +27,7 @@ router.get('/my-bookings', async (req, res) => {
 
 router.post('/make-booking', async (req, res) => {
     const { houseId, renterId } = req.query
+    const { adults, children, startDate, endDate } = req.body
     
     try {
         //verify user
@@ -43,11 +44,16 @@ router.post('/make-booking', async (req, res) => {
         
         await Booking.query().insert({
             house_id: houseId,
-            renter_id: renterId
+            renter_id: renterId,
+            adults: adults,
+            children: children,
+            start_date: startDate,
+            end_date: endDate
         })
 
         return res.send({status: 200, message: 'booking created, check your bookings'})
     } catch(err) {
+        console.log(err)
         res.status(500).send({status: 500, message: 'Could not make a booking'})
     }
 })

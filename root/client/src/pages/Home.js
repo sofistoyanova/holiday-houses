@@ -15,6 +15,7 @@ const Home = (props) => {
   return (
     <div>
         <HeroImage></HeroImage>
+        <div className="hero-image-pos-rel"></div>
         <MainFilter></MainFilter>
         <HomeSpaces></HomeSpaces>
         <HomePerfectPlace></HomePerfectPlace>

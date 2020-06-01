@@ -20,11 +20,18 @@ h3 {
   color:#3B8182
 
 }
-button{
+button, .button{
+  font-size: 2rem;
   border: none;
   border-radius: 0.3rem!important;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+
 }
-button.white {
+.text-blue {
+  color:#0EB5B9
+}
+button.white, .button.white  {
   background-color: white;
   color:#0EB5B9
 }
@@ -32,6 +39,7 @@ button.blue {
   color: white;
   background-color:#0EB5B9;
   border: none;
+
 }
 .white{
   color: white;
@@ -52,6 +60,9 @@ button.blue {
 .search-input.where {
   min-width: 13rem;
 }
+.search-input-wrapper.days {
+  width: 15rem;;
+}
 
 .search-input.guests {
   min-width: 6rem;
@@ -62,7 +73,7 @@ button.blue {
 }
 .form-container {
   width: 100%;
-  height: 50rem;;
+  height: auto;
 }
 .search-input-wrapper.btn {
   display: flex;
@@ -77,6 +88,7 @@ button.blue {
   top: 3rem;
   left: 0;
   right: 0;
+  min-height: 37rem;
 }
 .hero-overlay { 
   background-color: #3B8182;
@@ -86,16 +98,22 @@ button.blue {
   left: 0;
   right: 0;
   bottom: 0;
+  min-height: 37rem;
+
 }
 .hero-image {
   width: 100%;
   object-fit: cover;
+  min-height: 37rem;
+}
+.hero-image-pos-rel {
+  height: 37rem;
 }
 
 /* ////////////////////////////////////////////// */
 .main-filter {
   background-color: white;
-  margin-top: 25rem;
+  margin-top: -4rem;
   padding: 3rem 2rem;
   border-radius: 0.5rem;
   box-shadow: 0.1rem 0.1rem 0.5rem lightgrey;
@@ -150,6 +168,9 @@ button.blue {
   max-height: 25rem;
   object-fit: cover;
 }
+.middle-container .hero-overlay {
+  min-height: 25rem;
+}
 
 .middle-container-text {
   position: absolute;
@@ -180,8 +201,11 @@ button.blue {
 
 
 /* ////////////////////////////////////////////// */
-
+.footer{ 
+  margin-top: 3rem;
+}
 .footer-content {
+  display: none;
   background-color:#0EB5B9 ;
   height: 20rem;
   position: absolute;
@@ -189,12 +213,178 @@ button.blue {
   right: 0;
 }
 
+.fixed-footer {
+  position: absolute;
+  bottom: 20rem;
+  left: 0;
+  right: 0;
+}
+/* ////////////////////////////////////////////// */
+.login-container, .signup-container {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0.1rem 0.1rem 0.5rem lightgrey;
+  max-width: 40rem;
+  margin: auto;
+  margin-top: 5rem;
+  
+}
+.login-container .input, .signup-container .input {
+  width: 100%;
+  padding: 0.3rem;
+}
+.login-container h2, .signup-container h2 {
+  text-align: center;
+}
+
+/* ////////////////////////////////////////////// */
+.form_container {
+  margin-bottom: 30px;
+}
+.right-container {
+  margin: 0;
+}
+.form_container {
+  margin: 0; 
+}
+
+.house-wrapper {
+  box-shadow: 0.1rem 0.1rem 0.5rem lightgrey;
+  border-radius: 0.5rem;
+}
+.house-title {
+  text-transform: capitalize;
+}
+.house-wrapper .house-img {
+  width: 25rem;
+  height: 15rem;
+  object-fit: cover;
+  background-color: black;
+}
+.house-details {
+  width: 100%;
+  
+}
+.house-details-top {
+  width: 100%;
+}
+.house-tags {
+  color: white;
+  background: #FFD68D;
+  border-radius: 0.3rem
+}
+
+.see-details { 
+  float: right;
+  color: white;
+  background:#0EB5B9;
+}
 /* ////////////////////////////////////////////// */
 
 
+
+.form_container textarea {
+  overflow: auto;
+  outline: none;
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  resize: none;
+  height: 200px;
+}
+
+/* ////////////////////////////////////////////// */
+
+.single-house-image{
+ width: 50%; 
+ min-width: 50%;
+ height: 25rem;
+ object-fit: cover;
+ background-color: black; /* if there is no image, display back bg */
+}
+.house-description {
+  background-color: rgb(14, 181, 185, 0.3);
+}
+.book-now{ 
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+/* ////////////////////////////////////////////// */
+
+
+
+
 /* ////////////////////////////////////////////// */
 
 
 
 
 
+/* ////////////////////////////////////////////// */
+
+
+
+.form_container input,
+.form_container select,
+.form_container textarea {
+  width: 350px;
+  margin: 5px;
+  border: 1px solid #3B8182;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.form_container select {
+  color: #3B8182;
+}
+
+.inputContainer {
+  display: flex;
+}
+
+.inputContainer label {
+  width: 90px;
+  margin-right: 50px;
+  color: #3B8182;
+}
+
+.form_container, .right-container {
+  margin-bottom: 40px;
+}
+
+.form_container h2 {
+  margin-bottom: 30px;
+  color:  #3b8182;
+}
+
+.form_container button {
+  margin-top: 30px;
+}
+
+.smallerInputs {
+  width: 100px !important;
+}
+
+.checkbox {
+  width: 10px !important;
+}
+
+.image_container img {
+  max-width: 400px;
+  margin: 10px 0;
+}
+
+.errorMsg {
+  border-bottom: 1px solid red;
+  color: red;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.my-bookings {
+  margin-bottom: 20px;
+}

@@ -11,10 +11,13 @@ exports.up = function(knex) {
       .createTable('houses', (table) => {
         table.increments('id')
         table.string('city')
-        table.string('street')
-        table.string('street_number')
         table.string('pk')
         table.string('title')
+        table.string('rooms')
+        table.string('beds')
+        table.string('bathrooms')
+        table.boolean('pet_allowed')
+        table.string('category')
         table.text('description')
         table.float('price_per_night')
         table.text('image_name')
@@ -28,15 +31,20 @@ exports.up = function(knex) {
           .onUpdate('CASCADE')
       })
       .createTable('bookings', (table) => {
+        table.increments('booking_id')
         table.integer('house_id').unsigned().notNullable()
         table.integer('renter_id').unsigned().notNullable()
-        table.timestamp('created_at').defaultTo(knex.fn.now())
+        table.string('adults')
+        table.string('children')
+        table.date('start_date')
+        table.date('end_date')
       })
   };
   
   exports.down = function(knex) {
     return (
       knex.schema
+      .dropTableIfExists('bookings')
         .dropTableIfExists('houses')
         .dropTableIfExists('users')
     )
