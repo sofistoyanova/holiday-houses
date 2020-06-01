@@ -27,8 +27,7 @@ const Login = (props) => {
         data.json().then(json => {
           props.setUserId(json.id)
         }).then(() => {
-          console.log('Successfully logged in!')
-          // history.push("/") // To home 
+          history.push("/") // To home 
         })
       } else if( data.status ===  404){
         console.log(data)

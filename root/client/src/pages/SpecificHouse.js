@@ -4,10 +4,13 @@ import MainFilter from '../components/top/MainFilter.js'
 import HeroImage from '../components/top/HeroImage.js'
 import Footer from '../components/Footer.js'
 import DatePicker from 'react-date-picker';
+import { useStore } from 'react-context-hook';
 
 
 
 const SpecificHouse = (props) => {
+  const [specificHouseId, setSpecificHouseId] = useStore('houseId')
+  setSpecificHouseId(props.match.params.id)
   const houseId = props.match.params.id
   // const id = this.props.params.id
   const [title, setTitle] = useState('')
@@ -19,7 +22,7 @@ const SpecificHouse = (props) => {
   const [description, setDescription] = useState('')
   const [price_per_night, setPrice] = useState('')
   const [pet_allowed, setPetAllowed] = useState('')
-  const [image_name, setImage] = useState('')
+  const [imageName, setImage] = useState('house.jpg')
   useEffect(() => {
     fetch(`http://localhost:9091/api/houses/house/${houseId}`, {
       method: 'GET',
@@ -30,16 +33,16 @@ const SpecificHouse = (props) => {
     })
       .then(response => response.json())
       .then(data => {
-          setTitle(data.title)
-          setCity(data.city)
-          setPostalCode(data.postalCode)
-          setRooms(data.rooms)
-          setBathrooms(data.bathrooms)
-          setBed(data.beds)
-          setDescription(data.description)
-          setPrice(data.price_per_night)
-          setPetAllowed(data.pet_allowed)
-          setImage(data.image_name)
+        setImage(data.image_name)
+        setTitle(data.title)
+        setCity(data.city)
+        setPostalCode(data.postalCode)
+        setRooms(data.rooms)
+        setBathrooms(data.bathrooms)
+        setBed(data.beds)
+        setDescription(data.description)
+        setPrice(data.price_per_night)
+        setPetAllowed(data.pet_allowed)
 	  })
   }, [])
 return (
@@ -49,7 +52,7 @@ return (
         <MainFilter></MainFilter>
         <div className="specific-house">
           <div className="d-flex">
-			<img  className="single-house-image" src={image_name}></img>
+			<img  className="single-house-image" src={require(`../uploads/${imageName}`)} ></img>
 			<div className="w-100 position-relative p-4 ">
 				<div className="">
 					<div className="d-flex justify-content-between">

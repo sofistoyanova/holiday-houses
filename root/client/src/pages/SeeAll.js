@@ -21,10 +21,9 @@ const Houses = (props) => {
       .then((response) => response.json())
       .then((data) => setHouses(data))
   }, [])
-
   const listHouses = houses.map((house) =>
       <div className="d-flex house-wrapper mb-3" key={house.id}>
-        <img className="house-img" src={house.image_name} alt="house "></img>
+        <img className="house-img" src={require(`../uploads/${house.image_name}`)} alt="house"></img>
         <div className="house-details p-3">
           <div className="house-details-top d-flex justify-content-between ">
           	<h4 className="d-flex align-self-center text-blue house-title" >{house.title}</h4>

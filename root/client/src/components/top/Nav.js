@@ -7,6 +7,7 @@ import HouseUpload from '../../pages/HouseUpload.js'
 import BookHouse from '../../pages/BookHouse.js'
 import SeeAll from '../../pages/SeeAll.js'
 import SpecificHouse from '../../pages/SpecificHouse'
+import MyBookings from '../../pages/MyBooking.js';
 
 const Nav = () => {
 
@@ -28,7 +29,8 @@ const Nav = () => {
           <br></br> 
           <h5 className="m-2"><Link to='/upload-house'>Upload house</Link></h5> 
           <br></br> 
-          <h5 className="m-2"><Link to='/book-house'>Book house</Link></h5> 
+          <h5 className="m-2"><Link to='/my-bookings'>My bookings</Link></h5> 
+          <br></br> 
           
          
         </ul>
@@ -53,7 +55,10 @@ const Nav = () => {
                   <HouseUpload />
                 </Route>
                 <Route exact path="/book-house">
-                  <BookHouse />
+                  <BookHouse userId={userId} />
+                </Route>
+                <Route exact path="/my-bookings">
+                  <MyBookings userId={userId} />
                 </Route>
             </Switch>
         </div>

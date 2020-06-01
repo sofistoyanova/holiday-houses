@@ -2,13 +2,24 @@ import React, { useState, useEffect } from 'react';
 import MainFilter from '../components/top/MainFilter.js'
 import HeroImage from '../components/top/HeroImage.js'
 import HomeSpaces from '../components/HomeSpaces.js'
+import { useStore } from 'react-context-hook';
+import { useHistory } from 'react-router-dom';
 
 
-const HouseUpload = (props) => {
+const BookHouse = (props) => {
     const [errorMessage, setErrorMessage] = useState('')
+    const [houseId, setHouseId] = useStore('houseId')
     //Change this with dynamic value which comes from other routes
-    const houseId = 1
-    const userId = 1
+    const userId = props.userId
+    console.log('user',userId)
+    const history = useHistory();
+
+    useEffect(() => {
+        if(!userId) {
+            history.push("/login")
+        }
+    })
+
 
     const sendBookingRequest = (formData) => {
         const requestOptions = {
@@ -88,4 +99,4 @@ const HouseUpload = (props) => {
   )
 }
 
-export default HouseUpload
+export default BookHouse
