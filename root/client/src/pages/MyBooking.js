@@ -7,12 +7,16 @@ import { useHistory } from 'react-router-dom';
 import Footer from '../components/Footer.js'
 import { Link } from "react-router-dom";
 
-
 const MyBookings = (props) => {
-    const userId = props.userId || 2
+    const userId = props.userId 
     const [bookings, setBookings] = useState([])
+    const history = useHistory();
+
 
     useEffect(() => {
+        if(!userId) {
+            history.push("/login")
+        }
         fetch(`http://localhost:9091/api/bookings/my-bookings?userId=${userId}`, {
         method: 'GET',
         credentials: 'include',
@@ -25,7 +29,7 @@ const MyBookings = (props) => {
             setBookings(data.message)
         })
     }, [])
-
+    
     const listBookings = bookings.map((booking) => {
         let startDate = new Date(booking.start_date)
         startDate = startDate.toISOString().split('T')[0]
@@ -33,8 +37,8 @@ const MyBookings = (props) => {
         let endDate = new Date(booking.end_date)
         endDate = endDate.toISOString().split('T')[0]
 
-        const title = 'House 1'
-        const imageName = 'house.jpg'
+        const title = booking.title
+        const imageName = booking.image_name
 
         return (
             <div className="specific-house">

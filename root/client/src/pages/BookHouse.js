@@ -5,13 +5,11 @@ import HomeSpaces from '../components/HomeSpaces.js'
 import { useStore } from 'react-context-hook';
 import { useHistory } from 'react-router-dom';
 
-
 const BookHouse = (props) => {
     const [errorMessage, setErrorMessage] = useState('')
     const [houseId, setHouseId] = useStore('houseId')
     //Change this with dynamic value which comes from other routes
     const userId = props.userId
-    console.log('user',userId)
     const history = useHistory();
 
     useEffect(() => {
