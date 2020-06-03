@@ -21,7 +21,7 @@ exports.up = function(knex) {
         table.text('description')
         table.float('price_per_night')
         table.text('image_name')
-        table.integer('owner_id').unsigned() // add later - .notNullable() // this is the owner
+        table.integer('owner_id').unsigned().notNullable()
 
         // Set foreign key
         table.foreign('owner_id')
@@ -39,7 +39,7 @@ exports.up = function(knex) {
         table.date('start_date')
         table.date('end_date')
       })
-  };
+  }
   
   exports.down = function(knex) {
     return (
@@ -48,5 +48,5 @@ exports.up = function(knex) {
         .dropTableIfExists('houses')
         .dropTableIfExists('users')
     )
-  };
+  }
   

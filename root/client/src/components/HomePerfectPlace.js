@@ -16,7 +16,7 @@ const listPerfectHomes = perfectHomes.map((perfectHome) =>
 			<h5 className="d-flex align-self-center m-2 white" >{perfectHome.title}</h5>
 		</div>
     </div>
-);
+)
   return (
 		<section className="section">
 			<h3>We make your life easy to find perfect place to stay</h3>

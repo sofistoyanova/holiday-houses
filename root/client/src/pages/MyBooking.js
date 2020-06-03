@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import MainFilter from '../components/top/MainFilter.js'
 import HeroImage from '../components/top/HeroImage.js'
 import HomeSpaces from '../components/HomeSpaces.js'
-import { useStore } from 'react-context-hook';
-import { useHistory } from 'react-router-dom';
+import { useStore } from 'react-context-hook'
+import { useHistory } from 'react-router-dom'
 import Footer from '../components/Footer.js'
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 
 const MyBookings = (props) => {
     const userId = props.userId 
     const [bookings, setBookings] = useState([])
-    const history = useHistory();
+    const history = useHistory()
 
 
     useEffect(() => {

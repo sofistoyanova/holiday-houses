@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react'
+import { Link } from "react-router-dom"
 import MainFilter from '../components/top/MainFilter.js'
 import HeroImage from '../components/top/HeroImage.js'
 import Footer from '../components/Footer.js'
-import DatePicker from 'react-date-picker';
-import { useStore } from 'react-context-hook';
+import DatePicker from 'react-date-picker'
+import { useStore } from 'react-context-hook'
 
 
 
@@ -12,7 +12,6 @@ const SpecificHouse = (props) => {
   const [specificHouseId, setSpecificHouseId] = useStore('houseId')
   setSpecificHouseId(props.match.params.id)
   const houseId = props.match.params.id
-  // const id = this.props.params.id
   const [title, setTitle] = useState('')
   const [city, setCity] = useState('')
   const [postalCode, setPostalCode] = useState('')

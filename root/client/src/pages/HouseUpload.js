@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import MainFilter from '../components/top/MainFilter.js'
 import HeroImage from '../components/top/HeroImage.js'
 import HomeSpaces from '../components/HomeSpaces.js'
 import axios from 'axios'
+import { useHistory } from 'react-router-dom'
 
 
 const HouseUpload = (props) => {
+    const history = useHistory()
+    const userId = props.userId
     const [errorMessage, setErrorMessage] = useState('')
     const [title, setTitle] = useState()
     const [city, setCity] = useState()
@@ -19,14 +22,18 @@ const HouseUpload = (props) => {
     const [petAllowed, setPetAllowed] = useState('yes')
     const [file, setFile] = useState()
 
+    useEffect(() => {
+        if(!userId) {
+            history.push("/login")
+        }
+    })
+
     const sendHouseRequets = (formData) => {
         axios.post('http://localhost:9091/api/houses/registerhouse', formData)
             .then(res => {
                 if(res.data.status == 200) {
-                    // redirect
                     setErrorMessage('House was uploaded')
                 } else {
-                    console.log(res.data)
                     setErrorMessage(res.data.message)
                 }
             })
@@ -51,6 +58,7 @@ const HouseUpload = (props) => {
             formData.append("price", price)
             formData.append("file", file)
             formData.append("rooms", rooms)
+            formData.append("userId", userId)
 
             sendHouseRequets(formData)
         }

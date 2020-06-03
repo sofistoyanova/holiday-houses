@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import React, { useState } from 'react'
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 import Login from '../../pages/Login.js'
 import Signup from '../../pages/Signup.js'
 import Home from '../../pages/Home.js'
@@ -7,11 +7,11 @@ import HouseUpload from '../../pages/HouseUpload.js'
 import BookHouse from '../../pages/BookHouse.js'
 import SeeAll from '../../pages/SeeAll.js'
 import SpecificHouse from '../../pages/SpecificHouse'
-import MyBookings from '../../pages/MyBooking.js';
+import MyBookings from '../../pages/MyBooking.js'
 
 const Nav = () => {
 
-  const [ userId, setUserId ] = useState("");
+  const [ userId, setUserId ] = useState("")
 
   return (
     <div className="Nav">
@@ -52,7 +52,7 @@ const Nav = () => {
                   {/* <SpecificHouse houseId={houseId}/> */}
                 </Route>
                 <Route exact path="/upload-house">
-                  <HouseUpload />
+                  <HouseUpload userId={userId} />
                 </Route>
                 <Route exact path="/book-house">
                   <BookHouse userId={userId} />
@@ -64,7 +64,7 @@ const Nav = () => {
         </div>
       </Router>
     </div>
-  );
+  )
 }
 
-export default Nav;
+export default Nav

@@ -13,7 +13,7 @@ const listExperiences = Experiences.map((Experience) =>
 		<h6 className="green-blue ">{Experience.userName}</h6>
 		<p className="green-blue experience-text">{Experience.text}</p>
     </div>
-);
+)
   return (
 		<section className="section experiences-container">
 			<h3>Experiences from customers</h3>

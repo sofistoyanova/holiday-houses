@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import hero from '../../images/hero-home.jpg'
 
  
@@ -15,6 +15,6 @@ export default class HeroImage extends Component {
         <img className="hero-image" src={hero} alt="Hero photography"></img>
       </div>
      
-    );
+    )
   }
 }

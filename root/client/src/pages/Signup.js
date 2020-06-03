@@ -1,20 +1,20 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom';
-// import {Link, useHistory, useLocation } from "react-router-dom"
+import { useHistory } from 'react-router-dom'
 import HeroImage from '../components/top/HeroImage.js'
 import Footer from '../components/Footer.js'
 
 const Signup = (props) => {
 
-  const [ email, setEmail ]  = useState("");
-  const [ password, setPassword] = useState("");
-  const [ repeatPassword, setRepeatPassword ]= useState("");
-  const [ first_name, setFirstName] = useState("");
-  const [ last_name, setLastName] = useState("");
-  const history = useHistory();
+  const [errorMessage, setErrorMessage] = useState('')
+  const [ email, setEmail ]  = useState("")
+  const [ password, setPassword] = useState("")
+  const [ repeatPassword, setRepeatPassword ]= useState("")
+  const [ first_name, setFirstName] = useState("")
+  const [ last_name, setLastName] = useState("")
+  const history = useHistory()
 
-  const Signup = async (e) => {
-    e.preventDefault();
+  const ignup = async (e) => {
+    e.preventDefault()
     await fetch("http://localhost:9091/api/users/signup", {
       method: "POST",
       body: JSON.stringify({
@@ -29,15 +29,14 @@ const Signup = (props) => {
         "Content-Type": "application/json"
       }
     }).then(data => {
-      if (data.status === 200) {
-        console.log('Success in signup')
-        history.push("/login");
-      } else if ( data.status === 400 ) {
-        console.log("User already exists");
-      } else if ( data.status === 411 ) {
-        console.log("Password not meeting requirements");
-      }
-      console.log(data);
+        if (data.status === 200) {
+          history.push("/login")
+        } else if ( data.status === 400 ) {
+          setErrorMessage("User already exists")
+        } else if ( data.status === 411 ) {
+          setErrorMessage("Password not meeting requirements")
+        }
+        console.log(data)
     })
   }
 
@@ -46,6 +45,7 @@ const Signup = (props) => {
       <HeroImage></HeroImage>
       <div className="form-container signup-container">
         <h2>Signup</h2>
+        <p className={errorMessage != '' ? "errorMsg" : ''}>{errorMessage != '' ? errorMessage : ''}</p>
         <form className="d-flex align-items-start flex-column">
             <input className="m-2 input" 
             type="text" 
@@ -104,4 +104,4 @@ const Signup = (props) => {
   )
 }
 
-export default Signup;
+export default Signup

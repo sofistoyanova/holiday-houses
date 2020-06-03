@@ -8,8 +8,6 @@ import WhyUs from '../components/WhyUs.js'
 import MiddleBanner from '../components/MiddleBanner.js'
 import Footer from '../components/Footer.js'
 
-// import {Link, useHistory, useLocation } from "react-router-dom"
-
 const Home = (props) => {
 
   return (

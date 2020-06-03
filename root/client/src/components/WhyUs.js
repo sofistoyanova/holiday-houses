@@ -16,7 +16,7 @@ const listReasons = WhyUsReasons.map((WhyUsReason) =>
 			<h6 className="green-blue why-text" >{WhyUsReason.title}</h6>
 		</div>
     </div>
-);
+)
   return (
 		<section className="section">
 			<h3>Why us?</h3>
