@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import MainFilter from '../components/top/MainFilter.js'
 import HeroImage from '../components/top/HeroImage.js'
 import HomeSpaces from '../components/HomeSpaces.js'
-import { useStore } from 'react-context-hook';
-import { useHistory } from 'react-router-dom';
+import { useStore } from 'react-context-hook'
+import { useHistory } from 'react-router-dom'
 
 const BookHouse = (props) => {
     const [errorMessage, setErrorMessage] = useState('')
     const [houseId, setHouseId] = useStore('houseId')
-    //Change this with dynamic value which comes from other routes
     const userId = props.userId
-    const history = useHistory();
+    const history = useHistory()
 
     useEffect(() => {
         if(!userId) {
@@ -32,15 +31,12 @@ const BookHouse = (props) => {
             .then(response => response.json())
             .then(data => {
                 if(data.status == 200) {
-                    console.log(data)
                     setErrorMessage(data.message)
                 }else {
-                    console.log(data)
                     setErrorMessage(data.message)
                 }
             } )
             .catch(err => {
-                console.log(err)
                 setErrorMessage('Database error')
             }) 
     }
@@ -49,7 +45,6 @@ const BookHouse = (props) => {
         event.preventDefault()
         const form = document.getElementById('bookingForm')
         const formData = Object.fromEntries(new FormData(form).entries())
-        console.log(formData)
         sendBookingRequest(formData)
     }
 

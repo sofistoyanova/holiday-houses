@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react'
+import { Link } from "react-router-dom"
 
 import MainFilter from '../components/top/MainFilter.js'
 import HeroImage from '../components/top/HeroImage.js'
@@ -9,7 +9,6 @@ import Footer from '../components/Footer.js'
 const Houses = (props) => {
 
   const [houses, setHouses] = useState([])
-  // const userId = (props.userId)
   useEffect(() => {
     fetch(`http://localhost:9091/api/houses/allhouses/`, {
       method: 'GET',
@@ -43,7 +42,7 @@ const Houses = (props) => {
           
         </div>
       </div>
-  );
+  )
 
   return (
     <div>

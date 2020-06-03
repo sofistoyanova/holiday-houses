@@ -1,7 +1,7 @@
-const router = require("express").Router();
-const User = require('../../models/User');
-const House = require('../../models/House');
-const Booking = require('../../models/Booking');
+const router = require("express").Router()
+const User = require('../../models/User')
+const House = require('../../models/House')
+const Booking = require('../../models/Booking')
 
 router.get('/my-bookings', async (req, res) => {
     const { userId } = req.query
@@ -53,7 +53,6 @@ router.post('/make-booking', async (req, res) => {
 
         return res.send({status: 200, message: 'booking created, check your bookings'})
     } catch(err) {
-        console.log(err)
         res.status(500).send({status: 500, message: 'Could not make a booking'})
     }
 })

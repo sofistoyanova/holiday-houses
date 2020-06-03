@@ -1,5 +1,5 @@
-const router = require("express").Router();
-const House = require('../../models/House');
+const router = require("express").Router()
+const House = require('../../models/House')
 const multer = require('multer')
 const http = require('http')
 const formidable = require('formidable')
@@ -24,9 +24,9 @@ router.get('/allhouses', async (req, res) => {
     
 })
 
-const upload = multer({ storage: storage });
+const upload = multer({ storage: storage })
 router.post('/registerhouse', upload.single('file'), async (req, res) => {
-    const { title, price, city, zip, type, description, rooms, bathrooms, petAllowed, beds } = req.body
+    const { title, price, city, zip, type, description, rooms, bathrooms, petAllowed, beds, userId } = req.body
     const file = req.file
 
     if(!title || !price || !city || !zip || !type || !description || !file || !rooms || !beds || !bathrooms || !petAllowed || !file) {
@@ -35,7 +35,7 @@ router.post('/registerhouse', upload.single('file'), async (req, res) => {
         return res.send({status: 400, message: 'City should contain at least 2 characters'})
     }  else if(title.length < 2) {
         return res.send({status: 400, message: 'Title should contain at least 2 characters'})
-    } else if(description.length < 2) { // change later!!!
+    } else if(description.length < 50) {
         return res.send({status: 400, message: 'Description should contain at least 50 characters'})
     } else if(isNaN(zip)) {
         return res.send({status: 400, message: 'Zip should be a number'})
@@ -62,7 +62,6 @@ router.post('/registerhouse', upload.single('file'), async (req, res) => {
     
     cityLowerCased = city.toLowerCase()
     try {
-        //await pipeline(file.stream, fs.createWriteStream(`${__dirname}/uploads/${fileName}`))
         await House.query().insert({
             city: cityLowerCased,
             pk: zip,
@@ -74,7 +73,8 @@ router.post('/registerhouse', upload.single('file'), async (req, res) => {
             beds: beds,
             bathrooms: bathrooms,
             pet_allowed: isPetAllowed,
-            category: type
+            category: type,
+            owner_id: userId
         })
         return res.send({status: 200, message: 'Uploaded!'})
     } catch(err) {
@@ -84,8 +84,8 @@ router.post('/registerhouse', upload.single('file'), async (req, res) => {
 
 // Overview of a specific house route (NOT TESTED!)
 router.get("/house/:id", async (req, res) => {
-    const { id } = req.params;
-    const specificHouses = await House.query().select().where({id: id}).limit(1);
+    const { id } = req.params
+    const specificHouses = await House.query().select().where({id: id}).limit(1)
     const foundHouse = specificHouses[0]
     if (foundHouse) {
         return res.status(200).send({
@@ -104,7 +104,7 @@ router.get("/house/:id", async (req, res) => {
     } else {
         return res.status(404).send({respone: 'House does not exists'})
     }
-});
+})
 
 router.get('/filterhouse', async(req, res) => {
     const {city, startDate, endDate, rooms} = req.body

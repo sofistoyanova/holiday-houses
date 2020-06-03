@@ -15,7 +15,7 @@ const listSpaces = spaces.map((space) =>
 			<button className="white m-2 p-1" >{space.title}</button>
 		</div>
     </div>
-);
+)
   return (
 		<section>
 			<h3>Find spaces that suit your style</h3>
