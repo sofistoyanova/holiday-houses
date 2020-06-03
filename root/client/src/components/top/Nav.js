@@ -8,6 +8,7 @@ import BookHouse from '../../pages/BookHouse.js'
 import SeeAll from '../../pages/SeeAll.js'
 import SpecificHouse from '../../pages/SpecificHouse'
 import MyBookings from '../../pages/MyBooking.js'
+import ContactUs from '../../pages/ContactUs.js'
 
 const Nav = () => {
 
@@ -30,6 +31,8 @@ const Nav = () => {
           <h5 className="m-2"><Link to='/upload-house'>Upload house</Link></h5> 
           <br></br> 
           <h5 className="m-2"><Link to='/my-bookings'>My bookings</Link></h5> 
+          <br></br> 
+          <h5 className="m-2"><Link to='/contactUs'>Contact us</Link></h5> 
           <br></br> 
           
          
@@ -59,6 +62,9 @@ const Nav = () => {
                 </Route>
                 <Route exact path="/my-bookings">
                   <MyBookings userId={userId} />
+                </Route>
+                <Route exact path="/contactUs">
+                  <ContactUs />
                 </Route>
             </Switch>
         </div>
