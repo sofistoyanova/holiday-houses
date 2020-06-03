@@ -97,7 +97,6 @@ const Signup = (props) => {
           {/* <Link to='/forgot-password'>Did you forgot you password?</Link><br></br>
           <Link to='/signup'>Sign up instead?</Link> */}
           <div className="fixed-footer">
-				<Footer></Footer>
 			</div>
       </div>
     </div>

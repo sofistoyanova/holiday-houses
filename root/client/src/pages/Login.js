@@ -72,7 +72,6 @@ const Login = (props) => {
 			</form>
 			<br></br>
 				<div className="fixed-footer">
-					<Footer></Footer>
 				</div>
 			</div>
 		</div>
