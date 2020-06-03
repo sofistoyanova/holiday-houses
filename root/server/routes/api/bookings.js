@@ -14,7 +14,7 @@ router.get('/my-bookings', async (req, res) => {
         }
 
         //find bookings
-        const bookings = await Booking.query().select('*').where({renter_id: userId})
+        const bookings = await Booking.query().select('*').join('houses', 'bookings.house_id', '=', 'houses.id')
         if(bookings.length < 1) {
             return res.status(400).send({status: 400, message: 'Could not find bookings'})
         }
